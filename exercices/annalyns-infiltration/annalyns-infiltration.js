@@ -27,7 +27,7 @@
  * @return {boolean} Whether or not you can execute a fast attack.
  */
 export function canExecuteFastAttack(knightIsAwake) {
-  throw new Error('Remove this line and implement the function');
+  return knightIsAwake ? false : true
 }
 
 /**
@@ -40,7 +40,7 @@ export function canExecuteFastAttack(knightIsAwake) {
  * @returns {boolean} Whether or not you can spy on someone.
  */
 export function canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake) {
-  throw new Error('Remove this line and implement the function');
+  return knightIsAwake || archerIsAwake || prisonerIsAwake
 }
 
 /**
@@ -52,7 +52,8 @@ export function canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake) {
  * @returns {boolean} Whether or not you can send a signal to the prisoner.
  */
 export function canSignalPrisoner(archerIsAwake, prisonerIsAwake) {
-  throw new Error('Remove this line and implement the function');
+  //https://www.boolean-algebra.com/kmap?q=2-11+1
+  return !archerIsAwake && prisonerIsAwake;
 }
 
 /**
@@ -71,5 +72,6 @@ export function canFreePrisoner(
   prisonerIsAwake,
   petDogIsPresent,
 ) {
-  throw new Error('Remove this line and implement the function');
+  //https://www.boolean-algebra.com/kmap?q=4-11+1_110+1_10+1_11+110_10+110
+  return !archerIsAwake && petDogIsPresent || !knightIsAwake && !archerIsAwake && prisonerIsAwake
 }
