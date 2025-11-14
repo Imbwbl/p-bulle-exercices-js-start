@@ -11,7 +11,20 @@
  * @returns {number} time in minutes
  */
 export function timeToMixJuice(name) {
-  throw new Error('Remove this line and implement the function');
+  //`'Pure Strawberry Joy'` takes 0.5 minutes, `'Energizer'` and `'Green Garden'` take 1.5 minutes each, `'Tropical Island'` takes 3 minutes and `'All or Nothing'` takes 5 minutes.
+  switch(name) {
+    case 'Pure Strawberry Joy':
+      return 0.5;
+    case 'Energizer':
+    case 'Green Garden':
+      return 1.5;
+    case 'Tropical Island':
+      return 3;
+    case 'All or Nothing':
+      return 5;
+    default:
+      return 2.5
+  }
 }
 
 /**
@@ -23,7 +36,26 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  throw new Error('Remove this line and implement the function');
+  let nbr_lime = 0;
+  let wedges = 0;
+  limes.forEach((l) => {
+    if (wedges < wedgesNeeded) {
+      //l == 'small' ? wedges += 6 : (l == 'medium' ? wedges += 8 : (l == 'large' ? wedges += 10 : null))
+      switch (l) {
+        case 'small':
+          wedges += 6
+          break;
+        case 'medium':
+          wedges += 8
+          break;
+        case 'large':
+          wedges += 10
+          break;
+      }
+      nbr_lime++
+    }
+  })
+  return nbr_lime;
 }
 
 /**
@@ -34,5 +66,12 @@ export function limesToCut(wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error('Remove this line and implement the function');
+  // absolute cinéma !
+  orders.map((e) => timeToMixJuice(e)).forEach((c) => {
+    if (timeLeft > 0) {
+      timeLeft -= c
+      orders.shift()
+    }
+  })
+  return orders
 }
