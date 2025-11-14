@@ -73,9 +73,7 @@ export function removeItemFromTop(cards) {
  * @returns {number[]} the cards including the new card
  */
 export function insertItemAtBottom(cards, newCard) {
-  cards.reverse()
-  cards.push(newCard)
-  cards.reverse()
+  cards.unshift(newCard)
   return cards
 }
 
@@ -87,9 +85,7 @@ export function insertItemAtBottom(cards, newCard) {
  * @returns {number[]} the cards without the removed card
  */
 export function removeItemAtBottom(cards) {
-  cards.reverse()
-  cards.pop()
-  cards.reverse()
+  cards.shift()
   return cards
 }
 
