@@ -8,7 +8,7 @@
  * @returns {number} sum of the two arrays
  */
 export function twoSum(array1, array2) {
-  throw new Error('Remove this line and implement the function');
+  return parseInt(array1.join('')) + parseInt(array2.join(''));
 }
 
 /**
@@ -17,8 +17,9 @@ export function twoSum(array1, array2) {
  * @param {number} value
  * @returns {boolean} whether the number is a palindrome or not
  */
-export function luckyNumber(value) {
-  throw new Error('Remove this line and implement the function');
+export function luckyNumber(value) {  
+  let valueStr = value.toString().trim()
+  return (valueStr == valueStr.split('').reverse().join(''))
 }
 
 /**
@@ -29,5 +30,12 @@ export function luckyNumber(value) {
  * @returns {string} error message
  */
 export function errorMessage(input) {
-  throw new Error('Remove this line and implement the function');
+  input = input?.trim()
+  console.log(input);
+  
+  if (input?.match(/^[0-9eE.]+$/g) && input != '0')
+    return '';
+  else if (input == undefined || input == '' || input == null)
+    return 'Required field'
+  return 'Must be a number besides 0'
 }
