@@ -25,7 +25,7 @@ const kvArray  = [
 const map = new Map(kvArray)
 
 export function age(name, seconds) {
-  if (!map.get(name))
+  if (!map.has(name))
     throw new Error("not a planet");
   return Math.round(((seconds/31557600)/map.get(name))*100)/100
  };
