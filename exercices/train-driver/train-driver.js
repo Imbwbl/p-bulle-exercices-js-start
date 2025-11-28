@@ -11,7 +11,7 @@
  * @returns {number[]} wagon ids
  */
 export function getListOfWagons(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
-  throw new Error('Remove this line and implement the function');
+  return [...arguments]
 }
 
 /**
@@ -21,7 +21,8 @@ export function getListOfWagons(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
  * @returns {number[]} reordered list of wagons
  */
 export function fixListOfWagons(ids) {
-  throw new Error('Remove this line and implement the function');
+  let [a, b, ...rest] = ids
+  return [...rest, a, b]
 }
 
 /**
@@ -32,7 +33,9 @@ export function fixListOfWagons(ids) {
  * @returns {number[]} corrected list of wagons
  */
 export function correctListOfWagons(ids, missingWagons) {
-  throw new Error('Remove this line and implement the function');
+  let [a, ...rest] = ids
+  let [...missings] = missingWagons 
+  return [a, ...missings, ...rest]
 }
 
 /**
@@ -43,7 +46,10 @@ export function correctListOfWagons(ids, missingWagons) {
  * @returns {Record<string, string>} extended route information
  */
 export function extendRouteInformation(information, additional) {
-  throw new Error('Remove this line and implement the function');
+  let {...info} = information
+  let {...adds} = additional
+  return {...info, ...adds}
+
 }
 
 /**
@@ -53,5 +59,6 @@ export function extendRouteInformation(information, additional) {
  * @returns {[string, Record<string, string>]} array with arrival time and object without arrival time
  */
 export function separateTimeOfArrival(information) {
-  throw new Error('Remove this line and implement the function');
+  let {timeOfArrival: timeOfArrival, ...rest} = information
+  return [timeOfArrival, {...rest}]
 }
