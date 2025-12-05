@@ -11,9 +11,9 @@
  */
 export function createVisitor(name, age, ticketId) {
   return {
-    name: name,
-    age: age,
-    ticketId: ticketId
+    name,
+    age,
+    ticketId
   }
 }
 

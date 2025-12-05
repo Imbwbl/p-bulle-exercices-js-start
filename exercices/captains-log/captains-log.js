@@ -6,7 +6,7 @@
  * @returns {string} the generated registry number.
  */
 export function randomShipRegistryNumber() {
-  return `NCC-${Math.random() * 8999 + 1000}`
+  return `NCC-${Math.floor(Math.random() * 8999 + 1000)}`
 }
 
 /**
@@ -24,6 +24,6 @@ export function randomStardate() {
  * @returns {string} a one-letter planet class.
  */
 export function randomPlanetClass() {
-  let classes = ['D', 'H', 'J', 'K', 'L', 'M', 'N', 'R', 'T', 'Y']
+  let classes = "DHJKLMNRTY"
   return classes[Math.floor(Math.random() * classes.length)]
 }

@@ -29,7 +29,8 @@ export function determineOddEvenCards(stack, type) {
   // 🚨 Use a `for...of` loop
   let number = 0
   for (let card of stack) {
-    if (card % 2 == (type == true ? 0 : 1))
+    let expected_reminder = type ? 0 : 1
+    if (card % 2 == expected_reminder)
       number++
   } 
   return number

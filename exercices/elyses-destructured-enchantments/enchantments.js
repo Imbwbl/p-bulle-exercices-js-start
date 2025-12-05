@@ -58,9 +58,8 @@ export function shiftThreeCardsAround(deck) {
  */
 export function pickNamedPile(piles) {
   // 🚨 Do NOT use piles.chosen or piles.disregarded.
-  let {chosen, disregarded} = piles
-  piles = chosen
-  return piles
+  const {chosen, disregarded} = piles
+  return chosen
 }
 
 /**
@@ -73,6 +72,6 @@ export function swapNamedPile(piles) {
   // 🪄 Don't break the magic.
   // 🚨 Do NOT use piles.chosen or piles.disregarded.
   // 🚨 Do NOT touch the next line or Elyse will accidentally reveal the trick.
-  let {chosen: disregarded, disregarded: chosen} = piles
+  const {chosen: disregarded, disregarded: chosen} = piles
   return {chosen, disregarded}
 }
