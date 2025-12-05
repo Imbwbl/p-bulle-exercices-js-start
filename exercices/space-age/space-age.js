@@ -12,6 +12,7 @@
 // | Uranus  | 84.016846                     |
 // | Neptune | 164.79132                     |
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#relation_with_array_objects
+
 const map =
   {"mercury": 0.2408467,
   "venus": 0.61519726,
@@ -22,10 +23,10 @@ const map =
   "uranus": 84.016846,
   "neptune": 164.79132,
   };
-//const map = new Map(kvArray)
 
 export function age(name, seconds) {
   if (map[name] == undefined)
     throw new Error("not a planet");
-  return Math.round(((seconds/31557600)/map[name])*100)/100
+  let years = (seconds/31557600)/map[name]
+  return Math.round(years*100)/100
  };
