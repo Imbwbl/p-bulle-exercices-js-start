@@ -10,8 +10,8 @@
  * @param {...number} ids
  * @returns {number[]} wagon ids
  */
-export function getListOfWagons(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
-  return [...arguments]
+export function getListOfWagons(...arg) {
+  return [...arg]
 }
 
 /**

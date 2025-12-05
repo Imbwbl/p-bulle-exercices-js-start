@@ -15,14 +15,20 @@
  */
 export function printBadge(id, name, department) {
   let text = ""
-  if (id) 
+  if (id) {
     text += `[${id}] `
-  if (name)
+  }
+  if (name) {
     text += `${name} `
+  }
   if (department) 
+  {
     text += `- ${department.toUpperCase()}`
+  }
   else
+  {
     text += `- OWNER`
+  }
 
   return text
 }
