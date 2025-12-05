@@ -8,6 +8,9 @@
 //
 // In your own projects, files, and code, you can play with @ts-check as well.
 
+import { ConnectionError, NotAvailable, Untranslatable } from './errors';
+
+
 export class TranslationService {
   /**
    * Creates a new service
@@ -27,7 +30,7 @@ export class TranslationService {
    * @returns {Promise<string>}
    */
   free(text) {
-    throw new Error('Implement the free function');
+   return this.api.fetch(text).then((v) => v.translation)
   }
 
   /**
@@ -41,7 +44,10 @@ export class TranslationService {
    * @returns {Promise<string[]>}
    */
   batch(texts) {
-    throw new Error('Implement the batch function');
+    return new Promise((resolve, reject) => {
+      texts.map((t) => {this.api.fetch(t)})
+      resolve()
+    })
   }
 
   /**
