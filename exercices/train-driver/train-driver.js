@@ -10,8 +10,8 @@
  * @param {...number} ids
  * @returns {number[]} wagon ids
  */
-export function getListOfWagons(...arg) {
-  return [...arg]
+export function getListOfWagons() {
+  return [...arguments]
 }
 
 /**
