@@ -44,10 +44,10 @@ export class TranslationService {
    * @returns {Promise<string[]>}
    */
   batch(texts) {
-    return new Promise((resolve, reject) => {
-      texts.map((t) => {this.api.fetch(t)})
-      resolve()
-    })
+    if (texts.length === 0) {
+      return Promise.reject(new BatchIsEmpty())
+    }
+    return Promise.all(texts.map((t) => this.free(t)))
   }
 
   /**
@@ -60,7 +60,20 @@ export class TranslationService {
    * @returns {Promise<void>}
    */
   request(text) {
-    throw new Error('Implement the request function');
+    // merci à tony pour l'aide
+    let p = () => new Promise((resolve, reject) => {
+      this.api.request(text, (result) => {
+        if (result) {
+            reject(result)
+          } else {
+            resolve()
+          }
+        })
+      })
+
+    return p()
+    .catch(p)
+    .catch(p)
   }
 
   /**
@@ -74,7 +87,19 @@ export class TranslationService {
    * @returns {Promise<string>}
    */
   premium(text, minimumQuality) {
-    throw new Error('Implement the premium function');
+   
+   return new Promise((resolve, reject) => {
+      this.api.fetch(text).then((v) => {
+        if (v.quality < minimumQuality) {
+          reject(new QualityThresholdNotMet())    
+        } else {
+          resolve(v.translation)
+        }
+      })
+      .catch((e) => reject(new Untranslatable()))
+        
+
+   })
   }
 }
 
